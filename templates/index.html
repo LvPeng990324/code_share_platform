@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码共享首页</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="text-center">
+        <h1>Welcome and have a look</h1>
+    </div>
+
+    <hr>
+
+    <div class="text-center">
+
+        {% for test_code in test_codes %}
+        {% if test_code.status == '未完成' %}
+            <a href="{{ test_code.title }}"><button class="btn btn-dark">{{ test_code.title }}</button></a>
+        {% elif test_code.status == '已完成' %}
+            <a href="{{ test_code.title }}"><button class="btn btn-success">{{ test_code.title }}</button></a>
+        {% elif test_code.status == '不会做' %}
+            <a href="{{ test_code.title }}"><button class="btn btn-danger">{{ test_code.title }}</button></a>
+        {% endif %}
+        <br>
+        <br>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="text-center">
+        <h1>Just have fun for the test</h1>
+    </div>
+</body>
+</html>
